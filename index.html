@@ -25,6 +25,27 @@ body {
   background: #0b2a4a;
 }
 
+  body.contraste,
+body.contraste * {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+/* Links com cor diferente pra destacar */
+body.contraste a {
+  color: #00ffff !important;
+}
+
+/* Evita imagens “estouradas” */
+body.contraste img {
+  filter: brightness(0.9) contrast(1.2);
+}
+
+/* Corrige a área da logo */
+body.contraste .logo-area {
+  background: #000 !important;
+}
 /* TOPO */
 .top-bar {
   background: #3f82bd;
