@@ -6,52 +6,41 @@
 <title>Associação em Ordem</title>
 
 <style>
-/* --- CONFIGURAÇÕES BÁSICAS --- */
+/* --- CONFIGURAÇÕES GERAIS --- */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #0b2a4a;
   color: #fff;
-  transition: background 0.3s, color 0.3s; /* Transição suave */
+  line-height: 1.6;
 }
 
-/* --- ESTILOS DO MODO CONTASTE --- */
+/* --- ACESSIBILIDADE E CONTRASTE --- */
 body.contraste {
   background: #000 !important;
   color: #fff !important;
 }
 
-body.contraste * {
-  background-color: #000 !important;
-  color: #fff !important;
+body.contraste .top-bar, 
+body.contraste .menu,
+body.contraste .logo-area {
+  background: #000 !important;
+  border-bottom: 1px solid #fff;
+}
+
+body.contraste a, 
+body.contraste button {
+  color: #00ffff !important;
   border-color: #fff !important;
 }
 
-/* Links com cor diferente pra destacar no modo contraste */
-body.contraste a {
-  color: #00ffff !important;
-}
-
-/* --- CORREÇÃO DA LOGO NO MODO CONTRASTE --- */
-/* Esta regra foca especificamente na imagem dentro da area da logo */
+/* CORREÇÃO DA LOGO PNG NO CONTRASTE */
 body.contraste .logo-area img {
-  /* Inverte as cores da logo (de escuro para claro) */
-  filter: invert(1) brightness(100%) !important;
-  /* Garante que o fundo do PNG permaneça transparente */
+  filter: invert(1) brightness(100%);
   background: transparent !important;
 }
 
-/* Outras imagens (se houver) mantêm o comportamento original */
-body.contraste img:not(.logo-area img) {
-  filter: brightness(0.9) contrast(1.2);
-}
-
-/* Corrige a área da logo para ficar preta no modo contraste */
-body.contraste .logo-area {
-  background: #000 !important;
-}
-
-/* --- TOPO --- */
+/* --- ESTRUTURA DO TOPO --- */
 .top-bar {
   background: #3f82bd;
   color: #fff;
@@ -73,19 +62,17 @@ body.contraste .logo-area {
   border: none;
   cursor: pointer;
   padding: 2px 8px;
-  border-radius: 3px;
+  font-weight: bold;
 }
 
-/* --- LOGO CENTRAL COM DEGRADÊ --- */
+/* --- ÁREA DA LOGO COM DEGRADÊ --- */
 .logo-area {
-  /* Exemplo de degradê suave (Opção 1 da resposta anterior) */
-  background: linear-gradient(135deg, #eaf4ff 0%, #a2c8eb 100%);
-  border-bottom: 1px solid #dbe9f6;
+  background: linear-gradient(180deg, #eaf4ff, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 20px 0; /* Espaçamento para a logo respirar */
+  padding: 20px 0;
+  border-bottom: 1px solid #dbe9f6;
 }
 
 .logo-area img {
@@ -105,20 +92,81 @@ body.contraste .logo-area {
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
-.menu a:hover {
-  color: #d4af37;
-}
-
-/* --- CONTEÚDO --- */
-.section {
-  padding: 50px 20px;
+/* --- SEÇÃO HOME (CONTEÚDO) --- */
+.section-home {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
 }
 
-</style>
+.section-home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
 
+.section-home h2 {
+  font-size: 1.4rem;
+  color: gold;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.section-home p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+/* BOTÕES DE AÇÃO */
+.cta-container {
+  margin: 40px 0;
+}
+
+.btn-main {
+  background: gold;
+  color: #0b2a4a;
+  padding: 18px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: gold;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid gold;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.support-text {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* RODAPÉ DE CONFIANÇA */
+.trust-footer {
+  margin-top: 60px;
+  font-size: 0.85rem;
+  color: #8bb1d4;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+}
+
+</style>
 </head>
 
 <body>
@@ -131,10 +179,10 @@ body.contraste .logo-area {
 
   <div>
     Acessibilidade:
-    <button onclick="diminuirFonte()" title="Diminuir Fonte">A-</button>
-    <button onclick="aumentarFonte()" title="Aumentar Fonte">A+</button>
+    <button onclick="diminuirFonte()">A-</button>
+    <button onclick="aumentarFonte()">A+</button>
     | Contraste:
-    <button onclick="toggleContraste()" title="Alternar Alto Contraste">🌓</button>
+    <button onclick="toggleContraste()">🌓</button>
   </div>
 </div>
 
@@ -149,29 +197,45 @@ body.contraste .logo-area {
   <a href="#">Contato</a>
 </div>
 
-<div class="section">
-  <h2>Regularização de Associações</h2>
-  <p>Organização, orientação e acompanhamento para sua entidade funcionar corretamente.</p>
+<div class="section-home">
+  <h1>Associação em Ordem</h1>
+  <h2>Regularize sua associação sem erros, sem retrabalho e sem perder tempo no cartório</h2>
+  
+  <p>Se sua associação está com diretoria irregular, atas com problemas ou dificuldades para registrar documentos, isso pode travar completamente o funcionamento da entidade.</p>
+  
+  <p>Aqui você recebe orientação clara e direta para entender o que está errado, como corrigir e qual o caminho correto para regularização.</p>
+  
+  <p>Evite exigências inesperadas, idas e vindas ao cartório e gastos desnecessários.</p>
+  
+  <p><strong>Organize sua associação com segurança, clareza e previsibilidade.</strong></p>
+
+  <div class="cta-container">
+    <a href="#" class="btn-main">Regularizar minha associação</a>
+    <span class="support-text">Sem compromisso. Entenda sua situação antes de tomar qualquer decisão.</span>
+    
+    <br>
+    
+    <a href="#" class="btn-secondary">Falar com orientação agora</a>
+  </div>
+
+  <div class="trust-footer">
+    <p>Atuação voltada à orientação e prevenção de irregularidades.</p>
+    <p>A análise e decisão final competem ao Cartório de Registro Civil das Pessoas Jurídicas.</p>
+  </div>
 </div>
 
 <script>
 let tamanhoFonte = 16;
-const bodyHTML = document.body;
-
 function aumentarFonte() {
-  tamanhoFonte += 2; // Aumenta de 2 em 2 para ser mais visível
-  if (tamanhoFonte > 24) tamanhoFonte = 24; // Limite máximo
-  bodyHTML.style.fontSize = tamanhoFonte + "px";
+  tamanhoFonte += 1;
+  document.body.style.fontSize = tamanhoFonte + "px";
 }
-
 function diminuirFonte() {
-  tamanhoFonte -= 2;
-  if (tamanhoFonte < 12) tamanhoFonte = 12; // Limite mínimo
-  bodyHTML.style.fontSize = tamanhoFonte + "px";
+  tamanhoFonte -= 1;
+  document.body.style.fontSize = tamanhoFonte + "px";
 }
-
 function toggleContraste() {
-  bodyHTML.classList.toggle("contraste");
+  document.body.classList.toggle("contraste");
 }
 </script>
 
