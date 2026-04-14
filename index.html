@@ -33,8 +33,18 @@ body.contraste * {
 }
 
 /* Links com cor diferente pra destacar */
-body.contraste a {
-  color: #00ffff !important;
+body.contraste .logo-area img {
+  /* Inverte as cores (preto vira branco) e remove o brilho excessivo */
+  filter: invert(1) brightness(100%);
+  
+  /* Garante que o fundo da imagem PNG continue transparente */
+  background: transparent !important;
+}
+
+/* Mantém as outras imagens com o ajuste original, se houver */
+body.contraste img:not(.logo-area img) {
+  filter: brightness(0.9) contrast(1.2);
+}
 }
 
 /* Evita imagens “estouradas” */
