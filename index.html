@@ -3,50 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <title>Associação em Ordem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-.top-bar {
-  background: #000;
-  color: #fff;
-  font-size: 14px;
-  padding: 8px 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #222;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      font-size: 16px;
+    }
 
-.top-bar a {
-  color: gold;
-  text-decoration: none;
-}
+    /* TOPO */
+    .top-bar {
+      background: #000;
+      color: #fff;
+      font-size: 14px;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #222;
+    }
 
-.top-bar button {
-  margin-left: 5px;
-  background: gold;
-  border: none;
-  padding: 3px 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
+    .top-bar a {
+      color: gold;
+      text-decoration: none;
+    }
 
-.top-bar button:hover {
-  background: #d4af37;
-}
+    .top-bar button {
+      margin-left: 5px;
+      background: gold;
+      border: none;
+      padding: 3px 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .top-bar button:hover {
+      background: #d4af37;
+    }
+
+    /* CONTRASTE */
+    .alto-contraste {
+      background: #fff;
+      color: #000;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      color: gold;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #ccc;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: gold;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* SEÇÕES */
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: gold;
+    }
+
+    p {
+      color: #ccc;
+    }
+
   </style>
 </head>
 
 <body>
+
+<!-- 🔝 TOPO -->
 <div class="top-bar">
-  <div class="top-left">
-    <a href="https://wa.me/5574999483875" target="_blank"> 
-      📞 (74) 99948-3875 
+  <div>
+    <a href="https://wa.me/556239567600" target="_blank">
+      📞 (62) 3956-7600
     </a>
-    <span> | Segunda à sexta-feira - Por agendamento</span> 
+    <span> | Segunda à sexta-feira das 8 às 17 horas</span>
   </div>
 
-  <div class="top-right">
+  <div>
     <span>Acessibilidade:</span>
-
     <button onclick="diminuirFonte()">A-</button>
     <button onclick="aumentarFonte()">A+</button>
 
@@ -54,21 +113,28 @@
     <button onclick="toggleContraste()">🌓</button>
   </div>
 </div>
+
+<!-- 🔽 CONTEÚDO -->
 <header>
   <h1>Associação em Ordem</h1>
-  <p>Assessoria Simplificada para Regularização de Associações</p>
-  <a class="btn" href="#">Falar no WhatsApp</a>
+  <div class="subtitle">Assessoria Simplificada</div>
+
+  <a class="btn" href="https://wa.me/5599999999999" target="_blank">
+    Falar no WhatsApp
+  </a>
 </header>
 
 <section>
-  <h2>Como posso ajudar</h2>
-  <p>Identificação de problemas, orientação e acompanhamento para regularizar sua associação.</p>
+  <h2>Regularize sua associação</h2>
+  <p>Problemas com documentos, diretoria ou estatuto podem impedir o funcionamento da entidade.</p>
 </section>
 
 <section>
-  <h2>Problemas comuns</h2>
-  <p>Diretoria vencida, atas incorretas, falta de continuidade registral e irregularidades no estatuto.</p>
+  <h2>Como posso ajudar</h2>
+  <p>Identifico erros, oriento o caminho correto e acompanho o processo de regularização.</p>
 </section>
+
+<!-- ⚙️ SCRIPT -->
 <script>
 let tamanhoFonte = 16;
 
@@ -86,5 +152,6 @@ function toggleContraste() {
   document.body.classList.toggle("alto-contraste");
 }
 </script>
+
 </body>
 </html>
